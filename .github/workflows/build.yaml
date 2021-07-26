@@ -13,7 +13,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [ 14.x, 15.x ]
+        node-version: [ 14.x ]
 
     steps:
       - uses: actions/checkout@v2
@@ -31,7 +31,7 @@ jobs:
         env:
           SSH_PRIVATE_KEY: ${{ secrets.MY_LINUX }}
           ARGS: "-avz --delete"
-          SOURCE: "./public"
+          SOURCE: "public"
           REMOTE_HOST: ${{ secrets.LINUX_IP }}
           REMOTE_USER: "root"
           TARGET: "/data/page/typescript"
