@@ -13,7 +13,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x, 15.x]
+        node-version: [ 14.x, 15.x ]
 
     steps:
       - uses: actions/checkout@v2
@@ -23,3 +23,15 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: yarn
       - run: yarn build
+      env:
+        CI: true
+      # Deploy
+      - name: Deploy
+        uses: easingthemes/ssh-deploy@v2.2.11
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.MY_LINUX }}
+          ARGS: "-avz --delete"
+          SOURCE: "./public"
+          REMOTE_HOST: ${{ secrets.LINUX_IP }}
+          REMOTE_USER: "root"
+          TARGET: "/data/page/typescript"
