@@ -22,3 +22,7 @@ actionLink: /views/other/guide
 
 ## typescript 中文手册
 该项目是基于[github](https://github.com/zhongsp/TypeScript) 上翻译的手册进行搭建的
+
+## 文档地址
+
+[http://typescript.sxuan.net/](http://typescript.sxuan.net/)
